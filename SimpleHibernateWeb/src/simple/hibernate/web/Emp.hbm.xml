@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<hibernate-mapping>
+	<class name="simple.hibernate.web.Emp" table="Emp">
+		<id name="id" type="int" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="name" column="name" type="string"/>
+	</class>
+</hibernate-mapping>
