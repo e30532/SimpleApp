@@ -1,16 +1,26 @@
 package simple.jaxws.server;
 
+import javax.annotation.Resource;
+import javax.jws.HandlerChain;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.xml.ws.WebServiceContext;
+import javax.xml.ws.handler.MessageContext;
 
 @WebService
+@HandlerChain(file="handler-chain.xml")
 public class Hello {
+	@Resource
+	private WebServiceContext context; 
+	
 	@WebMethod
 	public String sayHello(String name) {
 		System.out.println("simple.jaxws.server.Hello#sayHello(String name) > ");
+		System.out.println(context);
+		MessageContext messageContext = context.getMessageContext();
 		try {
-			Thread.sleep(1000*30);
+			Thread.sleep(1000*1);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
