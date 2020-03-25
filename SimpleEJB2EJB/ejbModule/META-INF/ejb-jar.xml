@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar id="ejb-jar_ID" version="2.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd">
+	<display-name>SimpleEJB2EJB</display-name>
+	<enterprise-beans>
+		<session id="Hello">
+			<ejb-name>Hello</ejb-name>
+			<home>ejbs.HelloHome</home>
+			<remote>ejbs.Hello</remote>
+			<ejb-class>ejbs.HelloBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+	</enterprise-beans>
+	<ejb-client-jar>SimpleEJB2EJBClient.jar</ejb-client-jar>
+</ejb-jar>

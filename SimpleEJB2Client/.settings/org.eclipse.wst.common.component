@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SimpleEJB2Client">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="SimpleEJB2ClientWeb.war" deploy-path="/" handle="module:/resource/SimpleEJB2ClientWeb/SimpleEJB2ClientWeb">
+            <dependent-object>WebModule_1579254394914</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
