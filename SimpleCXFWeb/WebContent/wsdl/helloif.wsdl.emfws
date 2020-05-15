@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rational.test.lt.models.wscore.configuration:WSDLInformationContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rational.test.lt.models.wscore.configuration="http:///com/ibm/rational/test/lt/models/wscore/configuration.ecore">
+  <securityOperationConfiguration>
+    <SecurityPortConfiguration aliasName="DEFAULTCONFIGURATION"/>
+  </securityOperationConfiguration>
+  <keyStore/>
+  <wsdl name="HelloService" key="HelloService">
+    <SimpleProperty value="http://cxf.simple/" name="WSDLPROPERTY_TARGETNAMESPACE"/>
+    <SimpleProperty value="2448e17a9baf81edd828e8d633288686909cbd282448e17a9baf81edd828e8d633288686909cbd2857a2287638bedaf6ecfdd6291bf46f6f2e989f7c" name="WSDLPROPERTY_HASH"/>
+    <SimpleProperty value="1589538634531" name="WSDLPROPERTY_SYNCHROSTAMP"/>
+    <ResourceProxy portablePath="/SimpleCXFWeb/WebContent/wsdl/helloif.wsdl" timeStamp="1589538634531"/>
+    <WsdlInformationContainer versionContainer="9.0"/>
+    <WsdlBinding name="HelloServiceSoapBinding">
+      <SimpleProperty value="SoapDocumentBinding" name="WSDLBINDINGPROPERTY_TYPE"/>
+      <SimpleProperty value="http://schemas.xmlsoap.org/soap/http" name="WSDLBINDINGPROPERTY_TRANSPORT_TYPE"/>
+      <SimpleProperty value="true" name="Soap11Binding"/>
+      <SimpleProperty value="false" name="Soap12Binding"/>
+      <SimpleProperty value="false" name="HttpBinding"/>
+      <SimpleProperty value="{http://cxf.simple/}HelloIF" name="WSDLBINDING_SERVICE_NAME"/>
+      <WsdlOperation name="say" key="say">
+        <WsdlPort name="HelloPort" uniqueID="-1190640276SEPARATORc435ccb5-67a3-4291-8607-a80563d8a1e5">
+          <SimpleProperty value="http://localhost:8080/SimpleCXFWeb/services/HelloPort" name="WSDLPORTPROPERTY_HTTP_URL"/>
+          <in>
+            <SimpleProperty value="DEFAULTCONFIGURATION" name="operation_security_information"/>
+          </in>
+          <out>
+            <SimpleProperty value="DEFAULTCONFIGURATION" name="operation_security_information"/>
+          </out>
+        </WsdlPort>
+        <in>
+          <SimpleProperty value="literal" name="WSDLOPERATIONPROPERTY_ENCODING_STYLE"/>
+          <WsdlPart element="true" nameSpaceURI="http://cxf.simple/" localPart="say" partName="parameters"/>
+        </in>
+        <SimpleProperty value="SoapDocumentBinding" name="WSDLOPERATIONPROPERTY_STYLE_TYPE"/>
+        <SimpleProperty value="true" name="WSDLOPERATIONPROPERTY_SOAP_ACTION_REQUIRED"/>
+        <SimpleProperty value="" name="WSDLOPERATIONPROPERTY_SOAP_ACTION_URI"/>
+        <out>
+          <SimpleProperty value="literal" name="WSDLOPERATIONPROPERTY_ENCODING_STYLE"/>
+          <SimpleProperty value="sayResponse" name="MESSAGENAME"/>
+          <WsdlPart element="true" nameSpaceURI="http://cxf.simple/" localPart="sayResponse" partName="parameters"/>
+        </out>
+      </WsdlOperation>
+    </WsdlBinding>
+  </wsdl>
+</com.ibm.rational.test.lt.models.wscore.configuration:WSDLInformationContainer>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="HelloService" targetNamespace="http://cxf.simple/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cxf.simple/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://cxf.simple/" schemaLocation="helloif_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="sayResponse">
+    <wsdl:part name="parameters" element="tns:sayResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="say">
+    <wsdl:part name="parameters" element="tns:say">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HelloIF">
+    <wsdl:operation name="say">
+      <wsdl:input name="say" message="tns:say">
+    </wsdl:input>
+      <wsdl:output name="sayResponse" message="tns:sayResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HelloServiceSoapBinding" type="tns:HelloIF">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="say">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="say">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sayResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloService">
+    <wsdl:port name="HelloPort" binding="tns:HelloServiceSoapBinding">
+      <soap:address location="http://localhost:8080/SimpleCXFWeb/services/HelloPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
