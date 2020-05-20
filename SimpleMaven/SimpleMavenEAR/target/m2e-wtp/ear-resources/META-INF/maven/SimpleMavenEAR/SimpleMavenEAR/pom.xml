@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>SimpleMaven</groupId>
+    <artifactId>SimpleMaven</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>SimpleMavenEAR</groupId>
+  <artifactId>SimpleMavenEAR</artifactId>
+  <packaging>ear</packaging>
+  <name>SimpleMavenEAR</name>
+  
+   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <configuration>
+          <modules>
+            <webModule>
+              <groupId>SimpleMavenWAR</groupId>
+              <artifactId>SimpleMavenWAR</artifactId>
+              <bundleFileName>SimpleMavenWAR.war</bundleFileName>
+              <contextRoot>/SimpleMavenWAR</contextRoot>
+            </webModule>
+          </modules>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+ 
+  <dependencies>
+    <dependency>
+      <groupId>SimpleMavenWAR</groupId>
+      <artifactId>SimpleMavenWAR</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+   </dependency>
+  </dependencies>
+</project>
