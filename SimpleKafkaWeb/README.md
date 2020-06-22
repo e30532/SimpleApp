@@ -42,21 +42,24 @@ server.xml
 
 * How the program works
 a message will be sent every 10 seconds from liberty to Kafka
+```
 [root@ladings1 kafka_2.12-2.5.0]# bin/kafka-console-consumer.sh --bootstrap-server fyre1:9092 --topic test                 
 Hello Jun 22,2020 01:31:36
 Hello Jun 22,2020 01:31:46
-
+```
 
 send a message from Kafka to liberty
+```
 [root@ladings1 kafka_2.12-2.5.0]# bin/kafka-console-producer.sh --bootstrap-server fyre1:9092 --topic test2
 >Hello from Kafka
 >
+```
 
-
+```
 [AUDIT   ] CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 21.974 seconds.
 Hello from Kafka
 HELLO FROM KAFKA
-
+```
 
 * Reference
 https://github.com/eclipse/microprofile-reactive-messaging/blob/ca6ce67da9b280ccb3e19f3c8e5e68cdf1a628d3/spec/src/main/asciidoc/architecture.asciidoc
