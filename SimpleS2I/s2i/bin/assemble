@@ -1,0 +1,3 @@
+cd /tmp
+mvn clean package
+cp ./target/*.war /config/dropins/
