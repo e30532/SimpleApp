@@ -1,3 +1,6 @@
+This document describes the simplest way to create a EJB2 application.
+
+
 ![image](https://user-images.githubusercontent.com/22098113/100345584-de834480-3025-11eb-9f06-5acec8d45ada.png)  
 ![image](https://user-images.githubusercontent.com/22098113/100345641-f5299b80-3025-11eb-9437-b25f80efae0d.png)  
 ![image](https://user-images.githubusercontent.com/22098113/100345756-1be7d200-3026-11eb-8e03-c7c0816445cd.png)  
