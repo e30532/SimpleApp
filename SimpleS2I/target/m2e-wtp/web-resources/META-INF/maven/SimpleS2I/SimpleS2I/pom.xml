@@ -20,6 +20,7 @@
         <version>3.2.1</version>
         <configuration>
           <warSourceDirectory>WebContent</warSourceDirectory>
+          <warName>SimpleS2I</warName>
         </configuration>
       </plugin>
       <plugin>
