@@ -47,10 +47,14 @@
 12. If we want to run a specif logic before/after a method, we can use AOP, which is similar to @Interceptor of CDI.  
 ![image](https://user-images.githubusercontent.com/22098113/115877755-c30c5080-a482-11eb-9cd2-b9ed7893bc56.png)  
 
-13. run the application on liberty. The libery maven plugin will download liberty archive and create a server if it doesn't exist, then deploy the application.
+13. add dependencies for AOP.  
+![image](https://user-images.githubusercontent.com/22098113/115884865-51d09b80-a48a-11eb-8bc3-cb6417aa3cb0.png)  
+
+
+14. run the application on liberty. The libery maven plugin will download liberty archive and create a server if it doesn't exist, then deploy the application.
 ![image](https://user-images.githubusercontent.com/22098113/115877837-d91a1100-a482-11eb-9f87-c64dd4f096af.png)  
 
-14. access to the application.  
+15. access to the application.  
 ![image](https://user-images.githubusercontent.com/22098113/115878154-2dbd8c00-a483-11eb-9054-6e501af9966c.png)  
 http://localhost:9080/SimpleSpringBoot-0.0.1-SNAPSHOT/  
 ![image](https://user-images.githubusercontent.com/22098113/115878226-462da680-a483-11eb-9a5c-a37308ae0105.png)  
