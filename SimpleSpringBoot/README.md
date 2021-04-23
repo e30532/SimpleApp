@@ -59,7 +59,28 @@
 http://localhost:9080/SimpleSpringBoot-0.0.1-SNAPSHOT/  
 ![image](https://user-images.githubusercontent.com/22098113/115878226-462da680-a483-11eb-9a5c-a37308ae0105.png)  
 
-  
+ 
+ ※もし、Mavenプロジェクトで
+ ```
+ ClassNotFoundException: org.w3c.dom.ElementTraversal cannot be found by org.apache.xerces_2.12.1.v20210115-0812
+java.lang.reflect.InvocationTargetException
+ ```
+のようなエラーが出た場合、Eclipseで使用しているJavaのJRE/lib/endorsed/xml-apis-1.4.01.jarを配置すれば抑制できます。 しかし、このxml jarがあると、liberty maven pluginが以下のエラーで動かない場合があります。その場合は、<wlp_home>/etc/server.envでxml jarを配置してないJava homeを指定すれば回避できます。  
+
+```
+[INFO] [ERROR   ] CWWKE0701E: bundle com.ibm.ws.org.apache.felix.scr:1.0.51.cl210420210407-0944 (12) Error while loading components of bundle com.ibm.ws.logging.osgi:1.0.51.cl210420210407-0944 (1) java.lang.IllegalStateException: BundleContext is no longer valid com.ibm.ws.config_1.0.51.cl210420210407-0944 [9]
+[INFO] 	at org.eclipse.osgi.internal.framework.BundleContextImpl.checkValid(BundleContextImpl.java:1027)
+[INFO] 	at [internal classes]
+[INFO]   
+[INFO] [ERROR   ] CWWKE0701E: FrameworkEvent ERROR org.osgi.framework.BundleException: Exception in com.ibm.ws.config.internal.WSConfigActivator.start() of bundle com.ibm.ws.config.
+[INFO] 	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:835)
+[INFO] 	at [internal classes]
+[INFO] Caused by: javax.xml.stream.FactoryConfigurationError: Provider com.ctc.wstx.stax.WstxInputFactory not found
+[INFO] 	at javax.xml.stream.XMLInputFactory.newInstance(Unknown Source)
+[INFO] 	at com.ibm.ws.kernel.service.util.DesignatedXMLInputFactory$1.run(DesignatedXMLInputFactory.java:35)
+[INFO] 	... 1 more
+[INFO]  Event:org.osgi.framework.FrameworkEvent[source=com.ibm.ws.config_1.0.51.cl210420210407-0944 [9]] 
+```
 
 
 
