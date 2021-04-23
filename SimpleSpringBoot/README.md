@@ -11,10 +11,10 @@
 ![image](https://user-images.githubusercontent.com/22098113/115857085-39e82000-a468-11eb-8dc6-6f84d2f49322.png)  
 
 4. Add "Spring Web" since we are going to develop a web module.  
-![image](https://user-images.githubusercontent.com/22098113/115857209-5dab6600-a468-11eb-98e3-e76dde90e3c9.png)  
+![image](https://user-images.githubusercontent.com/22098113/115857209-5dab6600-a468-11eb-98e3-e76dde90e3c9.png)   
 
-5. click Finish. 
-![image](https://user-images.githubusercontent.com/22098113/115857237-669c3780-a468-11eb-99ea-c30057ec69e2.png)  
+5. click Finish.  
+![image](https://user-images.githubusercontent.com/22098113/115857237-669c3780-a468-11eb-99ea-c30057ec69e2.png)   
 
 6. Now the template is generated.  
 ![image](https://user-images.githubusercontent.com/22098113/115857416-a2cf9800-a468-11eb-8f21-6c6a5224f917.png)  
