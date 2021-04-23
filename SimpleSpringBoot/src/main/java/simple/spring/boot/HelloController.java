@@ -1,0 +1,18 @@
+package simple.spring.boot;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RestController
+public class HelloController {
+
+	@Autowired
+    private DemoBean demoBean;
+	
+	@RequestMapping("/")
+	public String index() {
+		return demoBean.say();
+//		return "Greetings from Spring Boot!";
+	}
+}
