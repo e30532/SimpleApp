@@ -26,12 +26,21 @@ public class ObjectFactory {
 
     private final static QName _SayResponse_QNAME = new QName("http://jms.soap.simple/", "sayResponse");
     private final static QName _Say_QNAME = new QName("http://jms.soap.simple/", "say");
+    private final static QName _Ping_QNAME = new QName("http://jms.soap.simple/", "ping");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: simple.soap.jms
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Ping }
+     * 
+     */
+    public Ping createPing() {
+        return new Ping();
     }
 
     /**
@@ -66,6 +75,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://jms.soap.simple/", name = "say")
     public JAXBElement<Say> createSay(Say value) {
         return new JAXBElement<Say>(_Say_QNAME, Say.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Ping }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://jms.soap.simple/", name = "ping")
+    public JAXBElement<Ping> createPing(Ping value) {
+        return new JAXBElement<Ping>(_Ping_QNAME, Ping.class, null, value);
     }
 
 }

@@ -4,4 +4,6 @@ public interface HelloRemote {
 
 	String say(String name);
 
+	void ping();
+
 }

@@ -4,6 +4,9 @@
       <xsd:import namespace="http://jms.soap.simple/" schemaLocation="HelloService_schema1.xsd"/>
     </xsd:schema>
   </types>
+  <message name="ping">
+    <part element="tns:ping" name="parameters"/>
+  </message>
   <message name="say">
     <part element="tns:say" name="parameters"/>
   </message>
@@ -11,6 +14,9 @@
     <part element="tns:sayResponse" name="parameters"/>
   </message>
   <portType name="Hello">
+    <operation name="ping">
+      <input message="tns:ping" wsam:Action="http://jms.soap.simple/Hello/ping"/>
+    </operation>
     <operation name="say">
       <input message="tns:say" wsam:Action="http://jms.soap.simple/Hello/sayRequest"/>
       <output message="tns:sayResponse" wsam:Action="http://jms.soap.simple/Hello/sayResponse"/>
@@ -18,6 +24,12 @@
   </portType>
   <binding name="HelloPortBinding" type="tns:Hello">
     <soap:binding style="document" transport="http://www.w3.org/2010/soapjms/"/>
+    <operation name="ping">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+    </operation>
     <operation name="say">
       <soap:operation soapAction=""/>
       <input>

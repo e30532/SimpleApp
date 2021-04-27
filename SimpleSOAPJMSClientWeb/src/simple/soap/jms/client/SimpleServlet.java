@@ -40,7 +40,8 @@ public class SimpleServlet extends HttpServlet {
         Hello proxy = service.getHelloPort();
         BindingProvider bp = (BindingProvider)proxy;
         bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "jms:jndi:jms/SimpleQ?targetService=Hello&jndiConnectionFactoryName=jms/SimpleQCF");
-        System.out.println(proxy.say("IBM"));
+        proxy.ping();
+        //        System.out.println(proxy.say("IBM"));
 	}
 
 	/**

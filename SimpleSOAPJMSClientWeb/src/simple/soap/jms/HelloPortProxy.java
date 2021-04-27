@@ -11,7 +11,10 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Dispatch;
 import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
+import java.util.concurrent.Future;
 import javax.xml.ws.Action;
+import javax.xml.ws.AsyncHandler;
+import javax.xml.ws.Response;
 
 public class HelloPortProxy{
 
@@ -114,6 +117,18 @@ public class HelloPortProxy{
 
     public Descriptor _getDescriptor() {
         return _descriptor;
+    }
+
+    public void ping() {
+        _getDescriptor().getProxy().ping();
+    }
+
+    public Response<SayResponse> sayAsync(String arg0) {
+        return _getDescriptor().getProxy().sayAsync(arg0);
+    }
+
+    public Future<?> sayAsync(String arg0, AsyncHandler<SayResponse> asyncHandler) {
+        return _getDescriptor().getProxy().sayAsync(arg0,asyncHandler);
     }
 
     public String say(String arg0) {

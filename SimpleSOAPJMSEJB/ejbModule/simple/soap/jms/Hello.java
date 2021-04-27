@@ -2,6 +2,8 @@ package simple.soap.jms;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.jws.Oneway;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.ws.BindingType;
 
@@ -24,5 +26,11 @@ public class Hello implements HelloRemote {
     }
     public String say(String name) {
     	return "Hello " + name;
+    }
+    
+    @WebMethod
+    @Oneway
+    public void ping() {
+    	System.out.println("pong");
     }
 }
