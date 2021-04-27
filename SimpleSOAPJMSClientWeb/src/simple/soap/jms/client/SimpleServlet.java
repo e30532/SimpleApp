@@ -21,8 +21,8 @@ import simple.soap.jms.view.HelloRemote;
 public class SimpleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-    @EJB(name="ejb/Hello")
-    private HelloRemote hello = null;       
+//    @EJB(name="ejb/Hello")
+//    private HelloRemote hello = null;       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -39,9 +39,10 @@ public class SimpleServlet extends HttpServlet {
         HelloService service = new HelloService();
         Hello proxy = service.getHelloPort();
         BindingProvider bp = (BindingProvider)proxy;
-        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "jms:jndi:jms/SimpleQ?targetService=Hello&jndiConnectionFactoryName=jms/SimpleQCF");
+        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, 
+        		"jms:jndi:jms/SimpleQ?targetService=Hello&jndiConnectionFactoryName=jms/SimpleQCF");
         proxy.ping();
-        //        System.out.println(proxy.say("IBM"));
+//                System.out.println(proxy.say("IBM"));
 	}
 
 	/**
