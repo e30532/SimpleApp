@@ -47,8 +47,8 @@ WSWS2018I: Finished processing enterprise archive (EAR) file /home/yamayoshi/Sim
 ![image](https://user-images.githubusercontent.com/22098113/116162048-f1fb1e80-a72f-11eb-91d9-d15cf852fdf3.png)  
 
 10. As a service endpoint, specify the JMS specific endpoint URL. The client code will delegate the mesesage put to the underlying webservice component layer by using the Q and QCF. "targetService" is the compornent type name (NOT component name).   
-![image](https://user-images.githubusercontent.com/22098113/116162124-1f47cc80-a730-11eb-9910-04eebf54b57d.png)  
 ![image](https://user-images.githubusercontent.com/22098113/116162278-6930b280-a730-11eb-970e-185992ebc9f6.png)  
+![image](https://user-images.githubusercontent.com/22098113/116174551-976ebc00-a749-11eb-9f8a-6bb6e7ae9fd0.png)  
 
 
 
