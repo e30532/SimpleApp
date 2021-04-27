@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SimpleSOAPJMS">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="SimpleSOAPJMSEJB.jar" deploy-path="/" handle="module:/resource/SimpleSOAPJMSEJB/SimpleSOAPJMSEJB">
+            <dependent-object>Module_1619487108529</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SimpleSOAPJMSEJBClient.jar" deploy-path="/" handle="module:/resource/SimpleSOAPJMSEJBClient/SimpleSOAPJMSEJBClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SimpleSOAPJMSEJB_JMSRouter.jar" deploy-path="/" handle="module:/resource/SimpleSOAPJMSEJB_JMSRouter/SimpleSOAPJMSEJB_JMSRouter">
+            <dependent-object>Module_1619488105701</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
