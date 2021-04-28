@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.etools.webservice.wsext:WsExtension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.etools.webservice.wsext="http://www.ibm.com/websphere/appserver/schemas/5.0.2/wsext.xmi" xmi:id="WsExtension_1619528302920">
+  <wsDescExt xmi:id="WsDescExt_1619528302920" wsDescNameLink="HelloService">
+    <pcBinding xmi:id="PcBinding_1619528302920" pcNameLink="Hello"/>
+  </wsDescExt>
+</com.ibm.etools.webservice.wsext:WsExtension>
