@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<BR>Enter your name:
+		<input id="name" type="text"/>
+	</div>
+	<div>
+		<input type="submit" value="Go" onClick="send()"/>
+	</div>
+	<div id="message"></div>
+	<script type="text/javascript">
+	var webSocket = new WebSocket('ws://' + window.document.location.host + '/SimpleWebSocketWeb/WebSocket');
+	
+	webSocket.onerror = function(event){
+		onError(event)
+	};
+
+	webSocket.onopen = function(event){
+		onOpen(event)
+	};
+
+	webSocket.onmessage = function(event){
+		onMessage(event)
+	};
+
+	function onMessage(event){
+		document.getElementById('message').innerHTML += '<br />' + event.data;
+	};
+
+	function onOpen(event){
+		document.getElementById('message').innerHTML = 'Connection established';
+	};
+
+	function onError(event){
+		alert(event.data);
+	}
+	
+	function send(){
+		var txt = document.getElementById('name').value;
+		webSocket.send(txt);
+		return false;
+	}
+	</script>
+</body>
+</html>
