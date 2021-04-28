@@ -17,10 +17,8 @@ public class Hello {
 	@WebMethod
 	public String sayHello(String name) {
 		System.out.println("simple.jaxws.server.Hello#sayHello(String name) > ");
-		System.out.println(context);
-		MessageContext messageContext = context.getMessageContext();
 		try {
-			Thread.sleep(1000*1);
+			Thread.sleep(1000*60);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
