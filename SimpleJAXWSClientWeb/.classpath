@@ -18,5 +18,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/IBM/WebSphere/AppServer855ND/runtimes/com.ibm.jaxws.thinclient_8.5.0.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

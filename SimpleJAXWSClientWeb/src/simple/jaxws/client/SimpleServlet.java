@@ -1,6 +1,8 @@
 package simple.jaxws.client;
 
 import java.io.IOException;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.BindingProvider;
 
-import simple.jaxws.server.Hello;
 import simple.jaxws.server.HelloService;
+
 
 /**
  * Servlet implementation class SimpleServlet
@@ -32,8 +34,9 @@ public class SimpleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("simple.jaxws.client.SimpleServlet#doGet >");
         HelloService service = new HelloService();
-        Hello proxy = service.getHelloPort();
+        simple.jaxws.server.Hello proxy = service.getHelloPort();
         BindingProvider bp = (BindingProvider)proxy;
+        bp.getRequestContext().put(com.ibm.wsspi.webservices.Constants.RESPONSE_TIMEOUT_PROPERTY , "55");
         bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, request.getParameter("endpointurl"));
         System.out.println(proxy.sayHello(request.getParameter("yourname")));
         
