@@ -5,5 +5,8 @@
             <dependent-object>Module_1574728967880</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="el-api-2.2.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/Users/Administrator/Downloads/el-api-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
