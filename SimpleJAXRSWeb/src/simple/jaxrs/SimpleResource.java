@@ -16,6 +16,7 @@ public class SimpleResource {
     @Produces(MediaType.TEXT_PLAIN)
     public Response sayHello() {
     	System.out.println("simple.jaxrs.SimpleResource#sayHello > ");
+    	int i = 1/0;
     	return Response.ok("Hello from JAXRS").build();
     }
 }

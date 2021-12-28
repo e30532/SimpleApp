@@ -27,10 +27,7 @@ public class SimpleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("simple.mvc.SimpleServlet.doGet() >");
-		System.out.println(request.getHeader("aaa"));
-		System.out.println(request.getHeader("AAA"));
-		response.setHeader("bBb", "bBb");
-		response.addHeader("cCc", "cCc");
+		response.setStatus(503);
         System.out.println("input: " + request.getParameter("message"));
         getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
         System.out.println("simple.mvc.SimpleServlet.doGet() <");
