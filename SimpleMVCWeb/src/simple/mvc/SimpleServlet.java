@@ -1,11 +1,15 @@
 package simple.mvc;
 
 import java.io.IOException;
+import java.io.StringReader;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
 
 /**
  * Servlet implementation class SimpleServlet
@@ -27,8 +31,7 @@ public class SimpleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("simple.mvc.SimpleServlet.doGet() >");
-		response.setStatus(503);
-        System.out.println("input: " + request.getParameter("message"));
+		System.out.println("input: " + request.getParameter("message"));
         getServletContext().getRequestDispatcher("index.jsp").forward(request, response);
         System.out.println("simple.mvc.SimpleServlet.doGet() <");
 	}

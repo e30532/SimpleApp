@@ -2,6 +2,7 @@ package simple.jdbc;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,12 +40,13 @@ public class SimpleServlet extends HttpServlet {
                 Connection con = null;
                 Statement stmt = null;
                 ResultSet rs = null;
-                
+                PreparedStatement ps = null;
                 try {
                         InitialContext initCtx = new InitialContext();
                         ds = (DataSource) initCtx.lookup("jdbc/SimpleDS");
                         con = ds.getConnection();
                         stmt = con.createStatement();
+                        ps = con.prepareStatement("DELETE  FROM EMP WHERE ID=?");
                         if(operation.equals("select")) {
                                 rs = stmt.executeQuery(sql);
                                 while(rs.next()){
@@ -61,6 +63,10 @@ public class SimpleServlet extends HttpServlet {
                         }else if(operation.equals("delete")){
                                 int i = stmt.executeUpdate(sql);
                                 System.out.println(i + " record was deleted.");
+                                System.out.println("---");
+                                ps.setInt(1, 4);
+                                System.out.println("---");
+                                ps.execute();
                         }
                 } catch (Exception e) {
                         e.printStackTrace();

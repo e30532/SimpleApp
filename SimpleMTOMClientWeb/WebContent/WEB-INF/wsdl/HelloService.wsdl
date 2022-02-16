@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="HelloService" targetNamespace="http://mtom.simple/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mtom.simple/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://mtom.simple/" version="1.0">
+<xs:element name="fileUpload" type="tns:fileUpload"/>
+<xs:element name="fileUploadResponse" type="tns:fileUploadResponse"/>
+<xs:complexType name="fileUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="fileUploadResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>  </wsdl:types>
+  <wsdl:message name="fileUploadResponse">
+    <wsdl:part element="tns:fileUploadResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fileUpload">
+    <wsdl:part element="tns:fileUpload" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Hello">
+    <wsdl:operation name="fileUpload">
+      <wsdl:input message="tns:fileUpload" name="fileUpload">
+    </wsdl:input>
+      <wsdl:output message="tns:fileUploadResponse" name="fileUploadResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HelloServiceSoapBinding" type="tns:Hello">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="fileUpload">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="fileUpload">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="fileUploadResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloService">
+    <wsdl:port binding="tns:HelloServiceSoapBinding" name="HelloPort">
+      <soap:address location="http://localhost:9080/SimpleMTOMWeb/HelloService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

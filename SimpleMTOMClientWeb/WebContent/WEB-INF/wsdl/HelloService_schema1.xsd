@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mtom.simple/" version="1.0" xmlns:tns="http://mtom.simple/">
+
+  <xs:element name="sendImage" type="tns:sendImage"/>
+
+  <xs:element name="sendImageResponse" type="tns:sendImageResponse"/>
+
+  <xs:complexType name="sendImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" nillable="true" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendImageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
