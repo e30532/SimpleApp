@@ -11,6 +11,7 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Dispatch;
 import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
+import javax.xml.ws.Action;
 
 public class HelloPortProxy{
 
@@ -119,12 +120,12 @@ public class HelloPortProxy{
         return _getDescriptor().getProxy().sleep(arg0);
     }
 
-    public void ping() {
-        _getDescriptor().getProxy().ping();
+    public Person sayHello(Person arg0) {
+        return _getDescriptor().getProxy().sayHello(arg0);
     }
 
-    public String sayHello(String arg0) {
-        return _getDescriptor().getProxy().sayHello(arg0);
+    public void ping() {
+        _getDescriptor().getProxy().ping();
     }
 
 }

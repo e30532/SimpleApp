@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.BindingProvider;
 
 import simple.jaxws.server.HelloService;
+import simple.jaxws.server.Person;
 
 
 /**
@@ -38,7 +39,9 @@ public class SimpleServlet extends HttpServlet {
         BindingProvider bp = (BindingProvider)proxy;
         bp.getRequestContext().put(com.ibm.wsspi.webservices.Constants.RESPONSE_TIMEOUT_PROPERTY , "55");
         bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, request.getParameter("endpointurl"));
-        System.out.println(proxy.sayHello(request.getParameter("yourname")));
+        Person person = new Person();
+        person.setName("AAA");
+        System.out.println((proxy.sayHello(person)).getAge());
         
         System.out.println("simple.jaxws.client.SimpleServlet#doGet <");	
     }

@@ -7,6 +7,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.ws.Action;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
@@ -34,9 +35,25 @@ public interface Hello {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "sleep", targetNamespace = "http://server.jaxws.simple/", className = "simple.jaxws.server.Sleep")
     @ResponseWrapper(localName = "sleepResponse", targetNamespace = "http://server.jaxws.simple/", className = "simple.jaxws.server.SleepResponse")
+    @Action(input = "http://server.jaxws.simple/Hello/sleepRequest", output = "http://server.jaxws.simple/Hello/sleepResponse")
     public String sleep(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns simple.jaxws.server.Person
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "sayHello", targetNamespace = "http://server.jaxws.simple/", className = "simple.jaxws.server.SayHello")
+    @ResponseWrapper(localName = "sayHelloResponse", targetNamespace = "http://server.jaxws.simple/", className = "simple.jaxws.server.SayHelloResponse")
+    @Action(input = "http://server.jaxws.simple/Hello/sayHelloRequest", output = "http://server.jaxws.simple/Hello/sayHelloResponse")
+    public Person sayHello(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Person arg0);
 
     /**
      * 
@@ -44,20 +61,7 @@ public interface Hello {
     @WebMethod
     @Oneway
     @RequestWrapper(localName = "ping", targetNamespace = "http://server.jaxws.simple/", className = "simple.jaxws.server.Ping")
+    @Action(input = "http://server.jaxws.simple/Hello/ping")
     public void ping();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sayHello", targetNamespace = "http://server.jaxws.simple/", className = "simple.jaxws.server.SayHello")
-    @ResponseWrapper(localName = "sayHelloResponse", targetNamespace = "http://server.jaxws.simple/", className = "simple.jaxws.server.SayHelloResponse")
-    public String sayHello(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
 
 }

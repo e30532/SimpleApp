@@ -1,103 +1,77 @@
-<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="HelloService" targetNamespace="http://server.jaxws.simple/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://server.jaxws.simple/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://server.jaxws.simple/" version="1.0">
-<xs:element name="ping" type="tns:ping"/>
-<xs:element name="sayHello" type="tns:sayHello"/>
-<xs:element name="sayHelloResponse" type="tns:sayHelloResponse"/>
-<xs:element name="sleep" type="tns:sleep"/>
-<xs:element name="sleepResponse" type="tns:sleepResponse"/>
-<xs:complexType name="sleep">
-    <xs:sequence>
-      <xs:element name="arg0" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="sleepResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="ping">
-    <xs:sequence/>
-  </xs:complexType>
-<xs:complexType name="sayHello">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="sayHelloResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-</xs:schema>  </wsdl:types>
-  <wsdl:message name="sayHelloResponse">
-    <wsdl:part element="tns:sayHelloResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="sleep">
-    <wsdl:part element="tns:sleep" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="ping">
-    <wsdl:part element="tns:ping" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="sleepResponse">
-    <wsdl:part element="tns:sleepResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="sayHello">
-    <wsdl:part element="tns:sayHello" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="Hello">
-    <wsdl:operation name="sleep">
-      <wsdl:input message="tns:sleep" name="sleep">
-    </wsdl:input>
-      <wsdl:output message="tns:sleepResponse" name="sleepResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ping">
-      <wsdl:input message="tns:ping" name="ping">
-    </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="sayHello">
-      <wsdl:input message="tns:sayHello" name="sayHello">
-    </wsdl:input>
-      <wsdl:output message="tns:sayHelloResponse" name="sayHelloResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="HelloServiceSoapBinding" type="tns:Hello">
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" name="HelloService" targetNamespace="http://server.jaxws.simple/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://server.jaxws.simple/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://server.jaxws.simple/" schemaLocation="HelloService_schema1.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="sleep">
+    <part element="tns:sleep" name="parameters">
+    </part>
+  </message>
+  <message name="sleepResponse">
+    <part element="tns:sleepResponse" name="parameters">
+    </part>
+  </message>
+  <message name="sayHello">
+    <part element="tns:sayHello" name="parameters">
+    </part>
+  </message>
+  <message name="ping">
+    <part element="tns:ping" name="parameters">
+    </part>
+  </message>
+  <message name="sayHelloResponse">
+    <part element="tns:sayHelloResponse" name="parameters">
+    </part>
+  </message>
+  <portType name="Hello">
+    <operation name="sleep">
+      <input message="tns:sleep" wsam:Action="http://server.jaxws.simple/Hello/sleepRequest">
+    </input>
+      <output message="tns:sleepResponse" wsam:Action="http://server.jaxws.simple/Hello/sleepResponse">
+    </output>
+    </operation>
+    <operation name="sayHello">
+      <input message="tns:sayHello" wsam:Action="http://server.jaxws.simple/Hello/sayHelloRequest">
+    </input>
+      <output message="tns:sayHelloResponse" wsam:Action="http://server.jaxws.simple/Hello/sayHelloResponse">
+    </output>
+    </operation>
+    <operation name="ping">
+      <input message="tns:ping" wsam:Action="http://server.jaxws.simple/Hello/ping">
+    </input>
+    </operation>
+  </portType>
+  <binding name="HelloPortBinding" type="tns:Hello">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="sleep">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="sleep">
+    <operation name="sleep">
+      <soap:operation soapAction=""/>
+      <input>
         <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="sleepResponse">
+      </input>
+      <output>
         <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ping">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="ping">
+      </output>
+    </operation>
+    <operation name="sayHello">
+      <soap:operation soapAction=""/>
+      <input>
         <soap:body use="literal"/>
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="sayHello">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="sayHello">
+      </input>
+      <output>
         <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="sayHelloResponse">
+      </output>
+    </operation>
+    <operation name="ping">
+      <soap:operation soapAction=""/>
+      <input>
         <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="HelloService">
-    <wsdl:port binding="tns:HelloServiceSoapBinding" name="HelloPort">
+      </input>
+    </operation>
+  </binding>
+  <service name="HelloService">
+    <port binding="tns:HelloPortBinding" name="HelloPort">
       <soap:address location="http://localhost:9080/SimpleJAXWSWeb/HelloService"/>
-    </wsdl:port>
-  </wsdl:service>
-</wsdl:definitions>
+    </port>
+  </service>
+</definitions>

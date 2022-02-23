@@ -15,15 +15,16 @@ public class Hello {
 	private WebServiceContext context; 
 	
 	@WebMethod
-	public String sayHello(String name) {
+	public Person sayHello(Person person) {
 		System.out.println("simple.jaxws.server.Hello#sayHello(String name) > ");
 		try {
-			Thread.sleep(1000*60);
+			Thread.sleep(1000*2);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "Hello " + name;
+		person.setAge("6");
+		return person;
 	}
 	
 	@WebMethod
