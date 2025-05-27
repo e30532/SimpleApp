@@ -34,6 +34,11 @@ bin/kafka-console-consumer.sh --bootstrap-server fyre1:9092 --topic test --from-
 Note: the number of partistion can't be decreased. 
 
 
+* How to distribute messages across partitions
+```
+./bin/kafka-console-producer.sh --bootstrap-server fyre1:9092 --topic test --property "parse.key=true" --property "key.separator=:"
+```
+
 * bootstrap.properties
 ```
 mp.messaging.outgoing.test.connector=liberty-kafka
