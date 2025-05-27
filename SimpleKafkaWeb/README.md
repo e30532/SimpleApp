@@ -1,15 +1,14 @@
 
 * How to setup Kafka
 ```
-wget http://mirror.cogentco.com/pub/apache/kafka/2.5.0/kafka_2.12-2.5.0.tgz
-tar -xzf kafka_2.12-2.5.0.tgz
-cd kafka_2.12-2.5.0
-cd /home/yamayoshi/DownloadDirector/kafka/kafka_2.12-2.5.0/
-bin/zookeeper-server-start.sh config/zookeeper.properties
-bin/kafka-server-start.sh config/server.properties
-bin/kafka-topics.sh --create --bootstrap-server fyre1:9092 --replication-factor 1 --partitions 1 --topic test
-bin/kafka-topics.sh --create --bootstrap-server fyre1:9092 --replication-factor 1 --partitions 1 --topic test2
-bin/kafka-topics.sh --list --bootstrap-server fyre1:9092
+wget http://mirror.cogentco.com/pub/apache/kafka/3.7.2/kafka_2.12-3.7.2.tgz
+tar -xzf kafka_2.12-3.7.2.tgz
+cd kafka_2.12-3.7.2
+./bin/zookeeper-server-start.sh config/zookeeper.properties
+./bin/kafka-server-start.sh config/server.properties
+./bin/kafka-topics.sh --create --bootstrap-server fyre1:9092 --replication-factor 1 --partitions 1 --topic test
+./bin/kafka-topics.sh --create --bootstrap-server fyre1:9092 --replication-factor 1 --partitions 1 --topic test2
+./bin/kafka-topics.sh --list --bootstrap-server fyre1:9092
 ```
 
 * Test if Kafka works
@@ -17,6 +16,23 @@ bin/kafka-topics.sh --list --bootstrap-server fyre1:9092
 bin/kafka-console-producer.sh --bootstrap-server fyre1:9092 --topic test
 bin/kafka-console-consumer.sh --bootstrap-server fyre1:9092 --topic test --from-beginning
 ```
+
+* Check the detail of a topic
+```
+./bin/kafka-topics.sh --describe --topic test --bootstrap-server fyre1:9092
+```
+
+* Check which client is connected to the partition.  
+```
+  ./bin/kafka-consumer-groups.sh --bootstrap-server fyre1:9092 --describe --group test
+```
+
+* The way to increase the number of partition.
+```
+./bin/kafka-topics.sh --bootstrap-server fyre1:9092 --alter --topic test --partitions 2
+```
+Note: the number of partistion can't be decreased. 
+
 
 * bootstrap.properties
 ```
