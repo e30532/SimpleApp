@@ -101,6 +101,42 @@ DB2の場合
 </server>
 ```
 
+MS SQL Server
+```
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>localConnector-1.0</feature>
+		<feature>javaee-7.0</feature>
+	</featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+                  
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+
+    <keyStore id="defaultKeyStore" password="Liberty"/>
+    <basicRegistry id="basic" realm="BasicRealm"> 
+        <user name="admin" password="admin"/>
+    </basicRegistry>
+    <administrator-role>
+         <user>admin</user>
+    </administrator-role>	
+
+    <library id="MSSQLJCC4Lib">
+        <fileset dir="/home/ibmwasl2/Downloads/sqljdbc_13.2/enu/jars" includes="mssql-jdbc-13.2.1.jre8.jar"/>
+    </library>
+    <dataSource id="DefaultDataSource" jndiName="jdbc/SimpleDS">
+	<connectionManager connectionTimeout="15s" maxPoolSize="50" minPoolSize="0" maxIdleTime="30s" reapTime="10s" purgePolicy="EntirePool"/>
+        <jdbcDriver libraryRef="MSSQLJCC4Lib"/>
+	<properties.microsoft.sqlserver serverName="c55664v1.fyre.ibm.com" portNumber="1433" databaseName="WASDB" user="dbadmin" password="*****" encrypt="false" integratedSecurity="false"/>
+    </dataSource>
+</server>
+
+```
+
 
 # WASで動かすための設定例
 data sourceの設定が必要です。
