@@ -131,7 +131,7 @@ MS SQL Server
     <dataSource id="DefaultDataSource" jndiName="jdbc/SimpleDS">
 	<connectionManager connectionTimeout="15s" maxPoolSize="50" minPoolSize="0" maxIdleTime="30s" reapTime="10s" purgePolicy="EntirePool"/>
         <jdbcDriver libraryRef="MSSQLJCC4Lib"/>
-	<properties.microsoft.sqlserver serverName="c55664v1.fyre.ibm.com" portNumber="1433" databaseName="WASDB" user="dbadmin" password="*****" encrypt="false" integratedSecurity="false"/>
+	<properties.microsoft.sqlserver serverName="msserver.ibm.com" portNumber="1433" databaseName="WASDB" user="dbadmin" password="*****" encrypt="false" integratedSecurity="false"/>
     </dataSource>
 </server>
 
